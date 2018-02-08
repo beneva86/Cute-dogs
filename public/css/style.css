@@ -1,0 +1,112 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+h1 {
+  color: #3d4c39;
+  font-size: 2.5em;
+}
+
+body {
+  background-color: #eff2de;
+  font-family: 'Montserrat', sans-serif;
+  color: #D75A4A;
+}
+
+.content {
+  background-color: #eff2de;
+}
+
+/*THUMBNAILS*/
+.thumb_wrapper {
+  background-color: #329b15;
+  text-align: center;
+}
+
+.container {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.container>img {
+  width: 10%;
+  border: solid 2px #debfa6;
+  border-radius: 8px;
+  margin: 15px;
+}
+
+.container>img:hover {
+  cursor: pointer;
+  border: solid 2px #debfa6;
+}
+
+/*SCORE*/
+.score_wrapper {
+  background-color: #eff2de;
+}
+
+.score_container {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+#number {
+  font-size: 1.5em;
+}
+
+/*IMAGES + LIKE BUTTON */
+.image_wrapper {
+  background-color: #eff2de;
+  padding: 30px;
+}
+
+.image_container {
+  margin: auto;
+  text-align: center;
+  position: relative;
+  width: 300px;
+}
+
+.big {
+  margin: auto;
+  width: 300px;
+  border-radius: 15px;
+}
+
+.highfive {
+  position: absolute;
+  top: 262px;
+  left: 269px;
+  max-width:80px;
+  max-height: 60px;
+}
+
+.text {
+  position: absolute;
+  top: 280px;
+  left: 276px;
+}
+
+.heart:hover {
+  cursor: pointer;
+}
+
+/*SCALING*/
+@media all and (max-width: 1166px) {
+  .container {
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .container {
+    margin: auto;
+    width: 80%;
+    padding: 0px;
+  }
+}

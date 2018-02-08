@@ -1,0 +1,72 @@
+extends layout.pug
+
+block content
+
+	div.header
+
+	div.thumb_wrapper
+			br
+			h1 Which puppy is the cutest?
+			div.container
+				img.thumbnail(src="images/dog1.jpg" alt="dog1")
+				img.thumbnail(src="images/dog2.jpg" alt="dog2")
+				img.thumbnail(src="images/dog3.jpg" alt="dog3")
+				img.thumbnail(src="images/dog4.jpg" alt="dog4")
+				img.thumbnail(src="images/dog5.jpg" alt="dog5")
+	div.image_wrapper
+		div.image_container
+			img.big
+			p.text
+			img.highfive
+	div.score_wrapper
+		div.score_container
+			p This dog has <b id="number"></b> high fives!
+
+	script( src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' )
+	script.
+		$(document).ready(function(){
+			$(".score_wrapper").hide();
+
+			let name = "";
+			let number = "";
+
+			$(".thumbnail").click(function(){
+				let filename = $(this).attr("src");
+				name = $(this).attr("alt");
+
+				$(".score_wrapper").show(500);
+				$(".highfive").attr("src", "images/pacsi.png");
+				$(".text").html("<b>Woof!</b>");
+				$(".big").attr("src", filename);
+
+				$.get('/like', {dog: name}, function(data){
+					number = data.number;
+					$("#number").html(`${number}`);
+				})
+			})
+
+			$(".highfive").click(function(){
+				$.post('/newlike', {dog: name}, function(data){});
+
+
+				$(".text").animate({
+					top:"-=60px",
+					opacity: 0.0,
+				}, 1000);
+				$(".text").animate({opacity:'1', top:"+=60px"}, 0);
+				number += 1
+				$('#number').html(`${number}`);
+			});
+
+			$(".highfive").mouseenter(function(){
+				$(".highfive").attr("src", "/images/pacsi_uj.png");
+			})
+
+			$(".highfive").mouseleave(function(){
+				$(".highfive").attr("src", "/images/pacsi.png");
+			})	
+		});
+			
+
+
+
